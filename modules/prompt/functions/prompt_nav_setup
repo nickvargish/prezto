@@ -11,7 +11,7 @@
 #
 
 function prompt_nav_precmd {
-	_prompt_nav_pwd="${PWD/#$HOME/~}"
+	#_prompt_nav_pwd="${PWD/#$HOME/~}"
 	vcs_info
 }
 
@@ -25,8 +25,7 @@ function prompt_nav_setup {
 
 	add-zsh-hook precmd prompt_nav_precmd
 
-    local success_color='%F{AAA}'
-    local failure_color='%F{124}'
+    local _failcolor='red'
     local vcs_info_color='%F{242}'
 
     # Set vcs_info parameters.
@@ -35,10 +34,10 @@ function prompt_nav_setup {
     zstyle ':vcs_info:*' unstagedstr '!'
     zstyle ':vcs_info:*' stagedstr '+'
     zstyle ':vcs_info:*' actionformats "%S" "%r/%s/%b %u%c (%a)"
-    zstyle ':vcs_info:*' formats "%S" "%r/%s/%b %u%c"
+    zstyle ':vcs_info:*' formats "%u%c %S" "%r/%s/%b %u%c" 
     zstyle ':vcs_info:*' nvcsformats "%~" ""
 
-	PROMPT='%B%n%b@%B%m%b%(#.#.$) '
+	PROMPT='%B%n%b%(?.@.%F{'$_failcolor'}@%f)%B%m%b%(#.#.$) '
 	RPROMPT='${vcs_info_msg_0_}'
 	#RPROMPT='  %38<…<%~ '
 	#RPROMPT='  %38<…<%~ ${vcs_info_msg_0_%%.}'

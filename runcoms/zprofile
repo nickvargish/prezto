@@ -66,6 +66,7 @@ _bindirs=(
 	/usr/games/bin
  	/usr/{bin,sbin}
 	/{bin,sbin}
+	/sw/{bin,sbin}
  	)
 
 path=($^_bindirs(N))
