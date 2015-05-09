@@ -42,11 +42,28 @@ typeset -gU cdpath fpath mailpath path
 # )
 
 # Set the list of directories that Zsh searches for programs.
-path=(
-  /usr/local/{bin,sbin}
-  $path
-  ~/bin
-)
+
+_homebin=$HOME/bin
+
+# a list of possible binary locations. directories that you want at the
+# front of your PATH should come first in this list.
+_bindirs=( 
+	$_homebin/links
+    $_homebin/scripts
+	$_homebin/noarch
+	$_homebin/sw/bin
+	/usr/remote/bin
+	/usr/local/{bin,sbin}
+	/usr/games
+	/usr/games/bin
+ 	/usr/{bin,sbin}
+	/{bin,sbin}
+ 	)
+
+path=($^_bindirs(N))
+
+# add . to path only if not root.
+[[ "$USERNAME" != "root" ]] && path+=.
 
 #
 # Less
@@ -73,3 +90,17 @@ if [[ ! -d "$TMPDIR" ]]; then
 fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
+
+# SHOST is used in title bar settings and icon names
+_hostname=`hostname`
+export SHOST=${_hostname%%\.*}
+export DOMAIN=${_hostname#*\.}
+
+# nethack!
+export HACKOPTIONS='name:Bander,pickup_types:$,DECgraphics,color,dogname:Misha,catname:Molly,fruit:durian,!rest_on_space,showscore,showexp,time,!cmdassist,autodig,suppress_alert:3.4.3'
+export NETHACKOPTIONS="$HACKOPTIONS"
+
+# CVS environment
+# Sourcefire CVS:
+export CVSROOT=":ext:scm.sfeng.sourcefire.com:/usr/cvsroot"
+export CVS_RSH=ssh
