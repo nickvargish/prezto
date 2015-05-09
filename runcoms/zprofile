@@ -20,12 +20,12 @@ fi
 export EDITOR='vi'
 export VISUAL='vi'
 export PAGER='more'
-if /usr/bin/which -s emacs ; then
+if which emacs >/dev/null ; then
 	export EDITOR='emacs'
 	export VISUAL='emacs'
 fi
 
-if /usr/bin/which -s less ; then
+if which less >/dev/null ; then
 	export PAGER='less'
 fi
 
