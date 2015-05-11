@@ -34,7 +34,7 @@ function prompt_nav_setup {
     zstyle ':vcs_info:*' unstagedstr '!'
     zstyle ':vcs_info:*' stagedstr '+'
     zstyle ':vcs_info:*' actionformats "%S" "%r/%s/%b %u%c (%a)"
-    zstyle ':vcs_info:*' formats "%u%c %S" "%r/%s/%b %u%c" 
+    zstyle ':vcs_info:*' formats "%u%c %b:%S" "%r/%s/%b %u%c" 
     zstyle ':vcs_info:*' nvcsformats "%~" ""
 
 	PROMPT='%B%n%b%(?.@.%F{'$_failcolor'}@%f)%B%m%b%(#.#.$) '

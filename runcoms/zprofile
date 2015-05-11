@@ -20,12 +20,12 @@ fi
 export EDITOR='vi'
 export VISUAL='vi'
 export PAGER='more'
-if which emacs >/dev/null ; then
+if (( $+commands[emacs] )) ; then
 	export EDITOR='emacs'
 	export VISUAL='emacs'
 fi
 
-if which less >/dev/null ; then
+if (( $+commands[less] )) ; then
 	export PAGER='less'
 fi
 
@@ -59,7 +59,7 @@ _bindirs=(
 	$_homebin/links
     $_homebin/scripts
 	$_homebin/noarch
-	$_homebin/sw/bin
+	$HOME/sw/bin
 	/usr/remote/bin
 	/usr/local/{bin,sbin}
 	/usr/games
