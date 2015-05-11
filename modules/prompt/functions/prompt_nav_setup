@@ -26,7 +26,7 @@ function prompt_nav_setup {
 	add-zsh-hook precmd prompt_nav_precmd
 
     local _failcolor='red'
-    local vcs_info_color='%F{242}'
+    #local _vcscolor='%F{242}'
 
     # Set vcs_info parameters.
     zstyle ':vcs_info:*' enable bzr git hg svn
@@ -34,8 +34,8 @@ function prompt_nav_setup {
     zstyle ':vcs_info:*' unstagedstr '!'
     zstyle ':vcs_info:*' stagedstr '+'
     zstyle ':vcs_info:*' actionformats "%S" "%r/%s/%b %u%c (%a)"
-    zstyle ':vcs_info:*' formats "%u%c %b:%S" "%r/%s/%b %u%c" 
-    zstyle ':vcs_info:*' nvcsformats "%~" ""
+    zstyle ':vcs_info:*' formats "%u%c %b:%32<…<%S" "%r/%s/%b %u%c" 
+    zstyle ':vcs_info:*' nvcsformats "%38<…<%~" ""
 
 	PROMPT='%B%n%b%(?.@.%F{'$_failcolor'}@%f)%B%m%b%(#.#.$) '
 	RPROMPT='${vcs_info_msg_0_}'

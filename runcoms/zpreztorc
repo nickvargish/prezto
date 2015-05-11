@@ -37,7 +37,6 @@ zstyle ':prezto:load' pmodule \
   'osx' \
   'perl' \
   'tmux' \
-  'node' \
   'sublimetext' \
   'syntax-highlighting' \
   'history-substring-search' \
@@ -46,6 +45,8 @@ zstyle ':prezto:load' pmodule \
   'fasd' \
   'ruby' \
   'prompt'
+
+# node,
 
 #
 # Editor

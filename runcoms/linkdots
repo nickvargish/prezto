@@ -3,8 +3,8 @@
 setopt EXTENDED_GLOB
 
 for rcfile in ${ZDOTDIR:-$HOME}/.zprezto/runcoms/z*; do
-    dotfile="${ZDOTDIR:-$HOME}/."$(basename $rcfile)
-    [[ -e "$dotfile" ]] && mv -f "$dotfile" "$dotfile.bak"
-    ln -s "$rcfile" "$dotfile"
+  dotfile="${ZDOTDIR:-$HOME}/."$(basename $rcfile)
+  [[ -e "$dotfile" ]] && mv -f "$dotfile" "$dotfile.bak"
+  ln -s "$rcfile" "$dotfile"
 done
 

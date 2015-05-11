@@ -145,6 +145,8 @@ alias du='du -kh'
 
 if (( $+commands[htop] )); then
   alias top=htop
+  alias topc='htop -s PERCENT_CPU'
+  alias topm='htop -s VSIZE'
 else
   if [[ "$OSTYPE" == (darwin*|*bsd*) ]]; then
     alias topc='top -o cpu'
