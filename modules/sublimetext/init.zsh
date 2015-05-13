@@ -1,8 +1,8 @@
 
 _sublbin=$(whence subl)
 if [[ -z "$_sublbin" ]]; then
-	if [[ -x '/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl' ]]; then
-		_sublbin='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+	if [[ -x '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' ]]; then
+		_sublbin='/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'
 	fi
 fi
 if [[ -z "$_sublbin" ]]; then
