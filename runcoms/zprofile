@@ -101,7 +101,13 @@ fi
 TMPPREFIX="${TMPDIR%/}/zsh"
 
 # SHOST is used in title bar settings and icon names
-_hostname=`hostname`
+if which hostname >/dev/null 2>&1 ; then
+  _hostname=$(hostname)
+elif [ -f /etc/hostname ] ; then
+  _hostname=$(cat /etc/hostname)
+else
+  _hostname='nowhere'
+fi
 export SHOST=${_hostname%%\.*}
 export DOMAIN=${_hostname#*\.}
 
